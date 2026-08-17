@@ -162,12 +162,35 @@ nav {
 nav a {
     position: relative;
     color: var(--dark-red);
-	font-weight:bold;
+    font-weight: bold;
     transition: color 0.2s ease;
 }
 
 nav a:hover {
     color: var(--dark-red-hover);
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    background: none;
+    border: none;
+
+    color: var(--dark-red);
+
+    font-size: 28px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    padding: 5px;
+
+    z-index: 1001;
 }
 
 
@@ -235,7 +258,7 @@ nav a:hover::after {
    ========================================================= */
 
 .hero {
-    min-height: 600px;
+    min-height: 400px;
 
     display: flex;
     align-items: center;
@@ -244,7 +267,7 @@ nav a:hover::after {
 
     background-color: var(--cream);
 
-    padding: 100px 0;
+    padding: 70px 0;
 }
 
 .hero .container {
@@ -319,6 +342,148 @@ nav a:hover::after {
 
     font-size: 1.1rem;
 }
+
+.offer-details {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.offer-details p {
+    margin: 0;
+}
+
+.offer-services {
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-bottom: 14px !important;
+}
+
+.offer-date {
+
+    font-size: 0.8rem;
+    opacity: 0.85;
+    margin-bottom: 8px !important;
+}
+
+.offer-message {
+    font-size: 0.95rem;
+    font-style: italic;
+    opacity: 0.85;
+}
+
+
+/* =========================
+   OUR WORK CAROUSEL
+   ========================= */
+
+.work-carousel {
+    padding: 70px 0 50px;
+    text-align: center;
+}
+
+.work-carousel h2 {
+    margin-bottom: 30px;
+}
+
+.carousel {
+    position: relative;
+    width: 80%;
+    max-width: 650px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-track {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.carousel-slide {
+    display: none;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-slide img {
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    border-radius: 18px;
+}
+
+
+/* Arrows */
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+
+    font-size: 24px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-btn:hover {
+    background: white;
+}
+
+.carousel-btn.prev {
+    left: 15px;
+}
+
+.carousel-btn.next {
+    right: 15px;
+}
+
+
+/* Dots */
+
+.carousel-dots {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+
+    background: #ccc;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #333;
+}
+
 
 
 /* =========================================================
@@ -585,6 +750,18 @@ nav a:hover::after {
     font-size: 0.95rem;
 }
 
+.booking-policy ul {
+    text-align: left;
+
+    margin: 0 0 25px 25px;
+
+    padding-left: 20px;
+}
+
+.booking-policy li {
+    margin-bottom: 10px;
+}
+
 
 /* Deposit notice */
 
@@ -806,6 +983,26 @@ footer p {
     font-size: 0.75rem;
 }
 
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.footer-links a {
+    color: var(--cream);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.7rem;
+    transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
 
 /* =========================================================
    SCROLL REVEAL
@@ -879,50 +1076,93 @@ footer p {
     transform: translateY(-3px);
 }
 
-
 /* =========================================================
    TABLET / MOBILE
    ========================================================= */
 
 @media (max-width: 700px) {
 
-    /* Header */
+    /* =====================================================
+       HEADER
+       ===================================================== */
 
     header {
-        position: relative;
+        position: sticky;
+        top: 0;
 
         padding: 15px 0;
     }
 
     header .container {
-        flex-direction: column;
+        position: relative;
 
-        gap: 18px;
+        flex-direction: row;
+
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 15px;
+    }
+	 .footer-links {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .footer-links a {
+        display: block;
+        width: auto;
     }
 
 
-    /* Logo */
+
+    /* =====================================================
+       LOGO
+       ===================================================== */
 
     .logo img {
         width: 125px;
     }
 
 
-    /* Navigation */
+    /* =====================================================
+       MOBILE NAVIGATION
+       ===================================================== */
 
     nav {
-        display: flex;
+        display: none;
 
-        align-items: center;
-        justify-content: center;
+        position: absolute;
 
-        flex-wrap: wrap;
-
-        gap: 12px 18px;
+        top: 100%;
+        left: 0;
+        right: 0;
 
         width: 100%;
 
-        font-size: 0.75rem;
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 15px;
+
+        padding: 20px 0;
+
+        background-color: var(--cream);
+
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+
+        font-size: 0.8rem;
+
+        z-index: 1000;
+    }
+
+    nav.nav-open {
+        display: flex;
     }
 
     nav a {
@@ -930,12 +1170,45 @@ footer p {
     }
 
 
-    /* Hero */
+    /* =====================================================
+       MOBILE MENU BUTTON
+       ===================================================== */
+
+    .menu-toggle {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 42px;
+        height: 42px;
+
+        background: none;
+
+        border: none;
+
+        color: var(--dark-red);
+
+        font-size: 28px;
+
+        line-height: 1;
+
+        cursor: pointer;
+
+        padding: 5px;
+
+        z-index: 1001;
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
 
     .hero {
-        min-height: 500px;
+        min-height: 400px;
 
-        padding: 75px 0;
+        padding: 70px 0;
     }
 
     h1 {
@@ -955,7 +1228,9 @@ footer p {
     }
 
 
-    /* Offer */
+    /* =====================================================
+       OFFER
+       ===================================================== */
 
     .offer {
         padding: 45px 20px;
@@ -966,7 +1241,57 @@ footer p {
     }
 
 
-    /* Sections */
+    /* =====================================================
+   CAROUSEL
+   ===================================================== */
+
+.work-carousel {
+    padding: 50px 0 35px;
+}
+
+.carousel {
+    width: 100%;
+    max-width: 650px;
+}
+
+.carousel-track {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    display: none;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-slide img {
+    display: block;
+    width: 100%;
+    height: 320px;
+    object-fit: contain;
+}
+
+.carousel-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+}
+
+.carousel-btn.prev {
+    left: 8px;
+}
+
+.carousel-btn.next {
+    right: 8px;
+}
+
+
+    /* =====================================================
+       SECTIONS
+       ===================================================== */
 
     .about,
     .services,
@@ -977,7 +1302,9 @@ footer p {
     }
 
 
-    /* Services */
+    /* =====================================================
+       SERVICES
+       ===================================================== */
 
     .services-offer {
         margin: 35px auto 55px;
@@ -1002,7 +1329,9 @@ footer p {
     }
 
 
-    /* Service title */
+    /* =====================================================
+       SERVICE TITLE
+       ===================================================== */
 
     .service-title {
         gap: 10px;
@@ -1019,7 +1348,9 @@ footer p {
     }
 
 
-    /* Booking policy */
+    /* =====================================================
+       BOOKING POLICY
+       ===================================================== */
 
     .booking-policy {
         margin-top: 70px;
@@ -1028,99 +1359,24 @@ footer p {
     }
 
 
-    /* Booking */
+    /* =====================================================
+       BOOKING
+       ===================================================== */
 
     .booking-box {
         padding: 30px 20px;
     }
 
 
-    /* Opening hours */
+    /* =====================================================
+       OPENING HOURS
+       ===================================================== */
 
     .hours-row {
         font-size: 0.8rem;
 
         padding: 14px 0;
     }
-}
 
 
-/* =========================================================
-   SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 420px) {
-
-    .container {
-        width: 88%;
-    }
-
-
-    /* Navigation */
-
-    nav {
-        gap: 8px 13px;
-
-        font-size: 0.7rem;
-    }
-
-
-    /* Hero */
-
-    .hero {
-        min-height: 470px;
-
-        padding: 65px 0;
-    }
-
-    h1 {
-        font-size: 2.7rem;
-    }
-
-
-    /* Offer */
-
-    .offer h2 {
-        font-size: 3rem;
-    }
-
-
-    /* Services */
-
-    .service-title {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 3px;
-    }
-
-    .service-title .price {
-        font-size: 1.15rem;
-    }
-
-
-    /* Extras */
-
-    .extra {
-        gap: 10px;
-
-        padding: 15px 0;
-    }
-
-
-    /* Opening hours */
-
-    .hours-row {
-        gap: 10px;
-
-        font-size: 0.75rem;
-    }
-
-
-    /* Booking */
-
-    .booking-box {
-        padding: 28px 18px;
-    }
 }
