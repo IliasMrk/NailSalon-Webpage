@@ -1,4 +1,3 @@
-
 /* =========================================================
    MON CHÈRIE BEAUTY
    Main JavaScript
@@ -117,11 +116,177 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
+       IMAGE CAROUSEL
+       ===================================================== */
+
+    const carousel = document.querySelector(".carousel");
+
+    if (carousel) {
+
+        // Find all carousel slides
+        const slides =
+            carousel.querySelectorAll(".carousel-slide");
+
+
+        // IMPORTANT:
+        // The dots are outside the .carousel element in your HTML,
+        // so we search for them from the whole document.
+        const dots =
+            document.querySelectorAll(".carousel-dots .dot");
+
+
+        // Find Previous button
+        const prevButton =
+            carousel.querySelector(".carousel-btn.prev");
+
+
+        // Find Next button
+        const nextButton =
+            carousel.querySelector(".carousel-btn.next");
+
+
+        // Keep track of which image is currently displayed
+        let currentSlide = 0;
+
+
+
+        /* =================================================
+           SHOW A PARTICULAR SLIDE
+           ================================================= */
+
+        function showSlide(index) {
+
+            // Make sure the requested slide exists
+            if (slides.length === 0) {
+                return;
+            }
+
+
+            // Remove active class from every slide
+            slides.forEach(function (slide) {
+
+                slide.classList.remove("active");
+
+            });
+
+
+            // Remove active class from every dot
+            dots.forEach(function (dot) {
+
+                dot.classList.remove("active");
+
+            });
+
+
+            // Add active class to selected slide
+            slides[index].classList.add("active");
+
+
+            // Add active class to selected dot
+            if (dots[index]) {
+
+                dots[index].classList.add("active");
+
+            }
+
+
+            // Update current slide
+            currentSlide = index;
+
+        }
+
+
+
+        /* =================================================
+           NEXT BUTTON
+           ================================================= */
+
+        if (nextButton) {
+
+            nextButton.addEventListener("click", function () {
+
+                let nextSlide = currentSlide + 1;
+
+
+                // If we're at the last image,
+                // go back to the first image
+                if (nextSlide >= slides.length) {
+
+                    nextSlide = 0;
+
+                }
+
+
+                showSlide(nextSlide);
+
+            });
+
+        }
+
+
+
+        /* =================================================
+           PREVIOUS BUTTON
+           ================================================= */
+
+        if (prevButton) {
+
+            prevButton.addEventListener("click", function () {
+
+                let previousSlide = currentSlide - 1;
+
+
+                // If we're at the first image,
+                // go to the last image
+                if (previousSlide < 0) {
+
+                    previousSlide = slides.length - 1;
+
+                }
+
+
+                showSlide(previousSlide);
+
+            });
+
+        }
+
+
+
+        /* =================================================
+           CAROUSEL DOTS
+           ================================================= */
+
+        dots.forEach(function (dot, index) {
+
+            dot.addEventListener("click", function () {
+
+                showSlide(index);
+
+            });
+
+        });
+
+
+
+        /* =================================================
+           INITIALISE CAROUSEL
+           ================================================= */
+
+        // Make sure the first slide and first dot
+        // are active when the page loads.
+        showSlide(0);
+
+    }
+
+
+
+    /* =====================================================
        SCROLL REVEAL ANIMATIONS
        ===================================================== */
 
     const revealElements = document.querySelectorAll(
-        ".hero, .offer, .about, .services, .service-category, .booking, .opening-hours, .contact"
+        ".hero, .offer, .about, .services, .service-category, .opening-hours, .contact"
     );
 
 
@@ -144,7 +309,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             },
             {
-                threshold: 0.12
+                threshold: 0.05
             }
         );
 
@@ -251,5 +416,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+
 });
-```
