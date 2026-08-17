@@ -1241,52 +1241,93 @@ footer p {
     }
 
 
-    /* =====================================================
-   CAROUSEL
+ /* =====================================================
+   MOBILE CAROUSEL
    ===================================================== */
 
-.work-carousel {
-    padding: 50px 0 35px;
-}
+@media (max-width: 700px) {
 
-.carousel {
-    width: 100%;
-    max-width: 650px;
-}
+    .work-carousel {
+        padding: 50px 0 35px;
+    }
 
-.carousel-track {
-    width: 100%;
-    overflow: hidden;
-}
+    .carousel {
+        position: relative;
+        display: block;
+        width: 100%;
+        max-width: 650px;
+        margin: 0 auto;
+    }
 
-.carousel-slide {
-    display: none;
-}
+    .carousel-track {
+        position: relative;
+        width: 100%;
+        height: 320px;
+        overflow: hidden;
+        border-radius: 18px;
+    }
 
-.carousel-slide.active {
-    display: block;
-}
+    .carousel-slide {
+        display: none;
+        width: 100%;
+        height: 320px;
+    }
 
-.carousel-slide img {
-    display: block;
-    width: 100%;
-    height: 320px;
-    object-fit: contain;
-}
+    .carousel-slide.active {
+        display: block;
+    }
 
-.carousel-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 20px;
-}
+    .carousel-slide img {
+        display: block;
+        width: 100%;
+        height: 320px;
+        object-fit: contain;
+        border-radius: 18px;
+    }
 
-.carousel-btn.prev {
-    left: 8px;
-}
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
 
-.carousel-btn.next {
-    right: 8px;
-}
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 38px;
+        height: 38px;
+
+        z-index: 10;
+
+        border: none;
+        border-radius: 50%;
+
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .carousel-btn.prev {
+        left: 8px;
+        right: auto;
+    }
+
+    .carousel-btn.next {
+        right: 8px;
+        left: auto;
+    }
+
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-top: 18px;
+        gap: 8px;
+    }
+
 
 
     /* =====================================================
