@@ -932,6 +932,11 @@ nav a:hover::after {
     margin-top: 40px;
 }
 
+.contact-intro {
+    margin-top: 20px;
+    margin-bottom: 45px;
+}
+
 .contact-details p {
     margin-bottom: 30px;
 }
