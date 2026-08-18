@@ -490,7 +490,7 @@ nav a:hover::after {
    Privacy policies and terms
    ========================================================= */
    
-   .privacy-link {
+ .privacy-link {
     color: #9a5c6b;
     text-decoration: underline;
     text-underline-offset: 3px;
